@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.json.*;
 
 /**
  * An example of creating a Rest api using Spring Annotations @RestController.
@@ -48,6 +49,19 @@ public class HelloController
     public String health()
     {
         return String.format("{\"status\":\"up\", \"date\": \" " + new Date() + "\"}");
+    }
+
+    @SuppressWarnings("nls")
+    @RequestMapping(value = "/company", method = RequestMethod.GET)
+    public String company(){
+        JSONObject temp = new JSONObject();
+        temp.put("compañía", "Always Up Analytics");
+        temp.accumulate("miembros", "Ameyalli Gomez");
+        temp.accumulate("miembros", "Francisco Huelsz");
+        temp.accumulate("miembros", "Bardo Ojeda");
+        temp.accumulate("miembros", "Maria Antonia Orozco");
+
+        return String.format(temp.toString());
     }
 
 }
