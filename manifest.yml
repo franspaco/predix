@@ -1,6 +1,6 @@
 ---
 applications:
-  - name: predix-microservice-cf-spring-test42
+  - name: semi42
     buildpack: java_buildpack
     path: target/predix-microservice-cf-spring-1.1.6.jar
     timeout : 180
